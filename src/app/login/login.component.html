@@ -1,0 +1,30 @@
+<ng4-loading-spinner [threshold]="0" [timeout]="60000" [zIndex]="9999"> </ng4-loading-spinner>
+<div class="login-container">
+  <div class="row verticalCenter">
+    <div class="col-lg-6 col-sm-12 col-md-8 form-card">
+      <div>
+        <img src="assets/image/avatar.png" alt="avatar" id="avatar">
+        <p>{{'LOGIN.TITLE_INIT' | translate}}</p>
+      </div>
+      <form [formGroup]="loginForm">
+        <div class="controls">
+          {{'LOGIN.FORM_EMAIL' | translate}}
+        </div>
+        <div class="controls">
+          <input type="text" formControlName="email" class="form-control inputGlobal">
+        </div>
+        <div class="controls">
+          {{'LOGIN.FORM_PASSWORD' | translate}}
+        </div>
+        <div class="controls">
+          <input type="password" formControlName="password" class="form-control inputGlobal">
+        </div>
+        <div class="container-button">
+          <button type="button" class="btn button-in" [disabled]="!loginForm.valid" (click)=login()>
+            {{'LOGIN.LOGIN' | translate}}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

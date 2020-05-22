@@ -1,0 +1,77 @@
+.login-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #101d25;
+    background-image: url("../../assets/image/background.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.button-in {
+    background-color: #101d25;
+    color: #fff;
+    width: 40%;
+    font-weight: 200;
+}
+.button-in:disabled {
+    background-color: #101d25c9;
+}
+.row {
+    height: 100%;
+    width: 100%;
+}
+.form-card {
+    margin-left: 3%;
+    border-radius: 5px;
+    border: solid 1px transparent;
+    background-color: #101d2561;
+    text-align: center;
+    animation-duration: 1s;
+    animation-name: slidein;
+    color: white;
+    font-weight: 100;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    margin: 2% 0%;
+    /* color: #101d25; */
+}
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0%;
+}
+.inputGlobal {
+    width: 70%;
+    border: solid 1px #f2f2f2;
+}
+.verticalCenter {
+    display: flex !important;
+    align-content: center !important;
+    align-items: center !important;
+}
+.centerImg {
+    display: block;
+    margin: auto;
+}
+/*  */
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 3%;
+        width: 100%;
+    }
+}
+#avatar {
+    max-width: 30%;
+}
+@media (max-width: 375px) {
+    .form-card {
+        width: 375px;
+        /* margin-left: 0%; */
+    }
+}

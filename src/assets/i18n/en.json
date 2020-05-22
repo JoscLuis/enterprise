@@ -1,0 +1,17 @@
+{
+    "LOGIN": {
+        "TITLE_INIT": "¡Welcome!",
+        "FORM_EMAIL": "Email",
+        "FORM_PASSWORD": "Password",
+        "LOGIN": "  "
+    },
+    "HOME": {
+        "PROFILE": "Client Data",
+        "SIGNOUT": "Sign off",
+        "NAME": "Name",
+        "MAIL": "Email",
+        "PHONE": "Phone",
+        "ADDRESS": "Address",
+        "SAVE": "Save"
+    }
+}

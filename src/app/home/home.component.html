@@ -1,0 +1,61 @@
+<ng4-loading-spinner [threshold]="0" [timeout]="60000" [zIndex]="9999"> </ng4-loading-spinner>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <!-- <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+      alt=""> -->
+    {{'LOGIN.TITLE_INIT' | translate}}
+  </a>
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" type="button" (click)="signOut()">{{'HOME.SIGNOUT' | translate}}</a>
+    </li>
+  </ul>
+</nav>
+<div class="row card-profile">
+  <div class="col-lg-6 col-md-4">
+    <div [ngStyle]="profilePictute" class="centerImg">
+    </div>
+    <br>
+  </div>
+  <div class="col-lg-6 col-md-4">
+    <p class="txt-profile"><strong>{{'HOME.PROFILE' | translate}}</strong></p>
+    <p class="txt-profile">
+      <button type="button" class="button-crud" *ngIf="!profileEdit"
+        (click)="profileEdit = !profileEdit">Editar</button>
+      <button type="button" class="button-crud" *ngIf="profileEdit"
+        (click)="profileEdit = !profileEdit">Cancelar</button>
+    </p>
+    <div class="profile" *ngIf="!profileEdit">
+      <p class="txt-profile">{{'HOME.NAME' | translate}}:<span *ngIf="profile">&nbsp;{{profile.name}}</span></p>
+      <p class="txt-profile">{{'HOME.MAIL' | translate}}:<span *ngIf="profile">&nbsp;{{profile.email}}</span></p>
+      <p class="txt-profile">{{'HOME.PHONE' | translate}}:<span *ngIf="profile">&nbsp;{{profile.phone}}</span></p>
+      <p class="txt-profile">{{'HOME.ADDRESS' | translate}}:<span *ngIf="profile">&nbsp;{{profile.address}}</span></p>
+    </div>
+    <div class="profile" *ngIf="profileEdit">
+      <form [formGroup]="editForm">
+        <div class="header-txt">
+          &nbsp;&nbsp;{{'HOME.NAME' | translate}}:
+        </div>
+        <input type="text" formControlName="name" class="form-control">
+        <div class="header-txt">
+          &nbsp;&nbsp;{{'HOME.MAIL' | translate}}
+        </div>
+        <input type="text" formControlName="email" class="form-control">
+        <div class="header-txt">
+          &nbsp;&nbsp;{{'HOME.PHONE' | translate}}
+        </div>
+        <input type="text" formControlName="phone" class="form-control">
+        <div class="header-txt">
+          &nbsp;&nbsp;{{'HOME.ADDRESS' | translate}}
+        </div>
+        <input type="text" formControlName="address" class="form-control">
+      </form>
+      <p class="txt-profile">
+        <button type="button" class="button-crud" *ngIf="profileEdit" (click)="saveToChanges()">
+          {{'HOME.SAVE' | translate}}
+        </button>
+      </p>
+    </div>
+  </div>
+
+</div>

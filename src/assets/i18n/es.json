@@ -1,0 +1,17 @@
+{
+    "LOGIN": {
+        "TITLE_INIT": "¡Bienvenido!",
+        "FORM_EMAIL": "Correo electrónico",
+        "FORM_PASSWORD": "Contraseña",
+        "LOGIN": "INICIAR SESIÓN"
+    },
+    "HOME": {
+        "PROFILE": "Datos del cliente",
+        "SIGNOUT": "Cerrar Sesión",
+        "NAME": "Nombre",
+        "MAIL": "Correo electrónico",
+        "PHONE": "Teléfono",
+        "ADDRESS": "Dirección",
+        "SAVE": "Guardar"
+    }
+}
