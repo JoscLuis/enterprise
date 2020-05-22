@@ -53,14 +53,15 @@ export class HomeComponent implements OnInit {
     })
   }
   saveToChanges() {
-    console.log(this.editForm.value)
     this.loading.show();
     this.service.updateProfile(this.editForm.value).subscribe((data) => {
-      // console.log(data)
       Swal.fire({
         position: 'center', icon: 'success', title: "Listo!", text: "¡Actualización exitosa!", showConfirmButton: false, timer: 2000
       });
       this.loading.hide();
+      let token = localStorage.getItem('token');
+      this.getProfile(token);
+      this.profileEdit = false;
     }, (err) => {
       this.loading.hide();
       console.log(err)

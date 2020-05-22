@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class ServiceService {
     return this.http.post(this.path + '/profile', body);
   }
   updateProfile(body) {
-    return this.http.put(this.path + '/editProfile', body)
+    let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' };
+    return this.http.put(this.path + '/editProfile', body, httpOptions)
   }
 }
