@@ -18,4 +18,10 @@ export class ServiceService {
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' };
     return this.http.put(this.path + '/editProfile', body, httpOptions)
   }
+  getClients() {
+    return this.http.get(this.path + '/clients');
+  }
+  rmClient(body) {
+    return this.http.post(this.path + '/clientTrash', body);
+  }
 }

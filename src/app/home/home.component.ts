@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   profile: any;
   profileEdit: boolean = false;
   editForm: FormGroup;
+  clients: any;
   constructor(private router: Router, private service: ServiceService, private loading: Ng4LoadingSpinnerService) {
     this.profilePictute = {
       width: '170px',
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     let token = localStorage.getItem('token');
     this.getProfile(token);
+    this.consultantClients();
   }
   getProfile(token) {
     this.loading.show();
@@ -66,7 +68,32 @@ export class HomeComponent implements OnInit {
       this.loading.hide();
       console.log(err)
       Swal.fire({
-        position: 'center', icon: 'warning', title: "Error", text: "¡Ocurrio un error!", showConfirmButton: false, timer: 2000
+        position: 'center', icon: 'warning', title: "Lo sentimos", text: "¡Ocurrio un error!", showConfirmButton: false, timer: 2000
+      });
+    })
+  }
+  consultantClients() {
+    this.service.getClients().subscribe((data) => {
+      this.clients = data;
+    }, (err) => {
+
+    });
+  }
+  trash(item) {
+    const body = { idclient: item.idclient }
+    this.loading.show();
+    this.service.rmClient(body).subscribe((data) => {
+      if (data['affectedRows'] === 1) {
+        Swal.fire({
+          position: 'center', icon: 'info', title: "¡Exitoso!", text: "Cliente eliminado correctamente", showConfirmButton: false, timer: 2000
+        });
+        this.consultantClients();
+      }
+      this.loading.hide();
+    }, (err) => {
+      this.loading.hide();
+      Swal.fire({
+        position: 'center', icon: 'warning', title: "Lo sentimos", text: "Ocurrio un error al procesar tu solicitud", showConfirmButton: false, timer: 2000
       });
     })
   }
