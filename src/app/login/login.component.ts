@@ -28,11 +28,11 @@ export class LoginComponent implements OnInit {
       this.loading.hide();
       if (server.status == 404) {
         Swal.fire({
-          position: 'center', icon: 'warning', title: "¡Cuidado!", text: "Credenciales incorrectas", showConfirmButton: false, timer: 2000
+          position: 'center', icon: 'warning', title: "¡Cuidado!", text: "Credenciales incorrectas", showConfirmButton: false, timer: 2500
         });
       } else {
         Swal.fire({
-          position: 'center', icon: 'warning', title: "", text: "¡Bienvenido!", showConfirmButton: false, timer: 1000
+          position: 'center', icon: 'warning', title: "", text: "¡Bienvenido!", showConfirmButton: false, timer: 2500
         });
         localStorage.setItem('token', server[0].token);
         this.router.navigate(['/home']);
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     }, (err) => {
       this.loading.hide();
       Swal.fire({
-        position: 'center', icon: 'warning', title: "¡Lo sentimos!", text: "Por ahora no podemos procesar la solicitud.", showConfirmButton: false, timer: 1000
+        position: 'center', icon: 'warning', title: "¡Lo sentimos!", text: "Por ahora no podemos procesar la solicitud.", showConfirmButton: false, timer: 2500
       });
     });
   }
